@@ -32,7 +32,10 @@ class Cola:
 class Pila:
     """ Representa una pila con operaciones de apilar, desapilar y
         verificar si está vacía. """
+<<<<<<< HEAD
+=======
 
+>>>>>>> de132035709865e9d8922f904a9771fdd0c65ba9
     def __init__(self):
         """ Crea una pila vacía. """
         # La pila vacía se representa con una lista vacía
@@ -59,3 +62,29 @@ class Pila:
             return self.items[len(self.items)-1]
         except IndexError:
             raise ValueError("La lista esta vacia")
+<<<<<<< HEAD
+
+class Nodo():
+    def __init__(self, val, izq=None, der=None):
+        self.valor = val
+        self.izq = izq
+        self.der=der
+
+
+def imprimirArbolPosOdn(arbol):
+        if arbol != None:
+                imprimirArbolPosOdn(arbol.izq)
+                imprimirArbolPosOdn(arbol.der)
+                print arbol.valor
+def imprimirArbolInOdn(arbol):
+        if arbol != None:
+                imprimirArbolInOdn(arbol.izq)
+                print arbol.valor
+                imprimirArbolInOdn(arbol.der)
+def imprimirArbolPreOdn(arbol):
+        if arbol != None:
+                print arbol.valor
+                imprimirArbolPreOdn(arbol.izq)
+                imprimirArbolPreOdn(arbol.der)
+=======
+>>>>>>> de132035709865e9d8922f904a9771fdd0c65ba9
