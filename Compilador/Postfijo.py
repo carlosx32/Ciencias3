@@ -2,7 +2,19 @@
 from Estructuras import *
 
 listaOperadores=[]
-
+"""
+def crearArbol(cadena,pila):
+	#Funcion que permite convertir una entrada en posfijo a un arbol de expresion
+	for i in cadena:
+		if i in "+-*/^=":
+			der=pila.desapilar()
+			izq=pila.desapilar()
+			pila.apilar(Nodo(i,izq,der))
+			#apila las operaciones asignando la variable a la izquierda y a la derecha
+		else:
+			pila.apilar(Nodo(i,None,None))#apila las variables
+	return pila.desapilar() #retorna la cabeza del arbol
+"""
 def crearArbol(cadena,pila):
 	#Funcion que permite convertir una entrada en posfijo a un arbol de expresion
 	for i in range(0,len(cadena)):
@@ -40,26 +52,33 @@ def evaluar(arbol):
         return int(arbol.valor)
 def entrada():
 	#funcion que permite ingresar una expresion en postfijo, esta esntrada no esta validada
-	return raw_input("Ingrese una operacion en postfijo, separando cada entrada por espacios ").split(' ')
-
+	#return raw_input("Ingrese una operacion en postfijo, separando cada entrada por espacios ").split(' ')
+	#return [g.split(' ') for g in [x.strip('\n') for x in open("operaciones.txt", "r").readlines() ] ]
+	return [g.split(' ') for g in [x.strip('\n') for x in open("operaciones.txt", "r").readlines() ]]
 
 menu=True
 while menu:
-	lineas=[]#aca estaran las lineas de codigo una por una
-
-
-			
 	cadena = entrada()
 	pila = Pila()
-	arbolExpresion = crearArbol(cadena, pila)
-	#print "Arbol de expresion en Pre orden"
-	#imprimirArbolPreOdn(arbolExpresion)
+	arbolesExpresion =[]
+	#print cadena[0]
+	for x in cadena:
+		arbolesExpresion.append(crearArbol(x,pila))
+
+	#print cadena
+	for x in arbolesExpresion:
+		print ("arbol ",x)
+		print imprimirArbolPreOdn(x)
+		print imprimirArbolInOdn(x)
+		print imprimirArbolPosOdn(x)
+
+
 	#print "Arbol de expresion en In orden"
 	#imprimirArbolPreOdn(arbolExpresion)
-	print "Arbol de expresion en Pos orden"
-	imprimirArbolPreOdn(arbolExpresion)
+	#print "Arbol de expresion en Pos orden"
+	#imprimirArbolPreOdn(arbolExpresion)
 
-	print"		Resultado: ",evaluar(arbolExpresion)
+#	print"		Resultado: ",evaluar(arbolExpresion)
 	menuopc=raw_input("¿Desea Volver a intentarlo ? s/n ")
 	if menuopc=='s' or menu=='S':
 		menu=True

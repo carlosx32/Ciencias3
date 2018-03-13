@@ -3,15 +3,16 @@ from Estructuras import *
 
 def crearArbol(cadena,pila):
 	#Funcion que permite convertir una entrada en posfijo a un arbol de expresion
-	for i in range(0,len(cadena)):
-		if cadena[i] in "+-*/^=":
+	for i in cadena:
+		if i in "+-*/^=":
 			der=pila.desapilar()
 			izq=pila.desapilar()
-			pila.apilar(Nodo(cadena[i],izq,der))
+			pila.apilar(Nodo(i,izq,der))
 			#apila las operaciones asignando la variable a la izquierda y a la derecha
 		else:
-			pila.apilar(Nodo(cadena[i],None,None))#apila las variables
+			pila.apilar(Nodo(i,None,None))#apila las variables
 	return pila.desapilar() #retorna la cabeza del arbol
+
 def entrada():
 	#funcion que permite ingresar una expresion en postfijo, esta esntrada no esta validada
 	return raw_input("Ingrese una operacion en postfijo, separando cada entrada por espacios ").split(' ')
