@@ -8,5 +8,3 @@ lexer = lex(module=lexer_rules)
 parser = yacc(module=parser_rules)
 text = "(14 + 6) * 2"
 ast = parser.parse(text, lexer)
-
-print ast

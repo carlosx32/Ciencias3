@@ -8,7 +8,7 @@ t_MINUS = r'-'
 t_DIVISION = r'/'
 
 def t_NUMBER(token):
-    r"[1-9][0-9]*"
+    r"[0-9][0-9]*"
     token.value = int(token.value)
     return token
 
